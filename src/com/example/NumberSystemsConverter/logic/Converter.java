@@ -14,17 +14,30 @@ public class Converter {
 			 * Subtract by '0' since binaryNum.charAt(i) will either be 49 or 48   
 			 */		
 			arrayOfDigits[i] = (byte) (binaryNum.charAt(i) - '0');
-			System.out.println(arrayOfDigits[i]);
+			
 		}
 		
 		// Loop thru byte[] and convert each to an int
+		// TODO: Need to deal w/long values
+		// Keeps track of which exponent we are on
 		int powerTracker = 0;
+		// Will store resulting value from conversion
+		int result = 0;
+		//Loop through each byte starting from last number -> Exponent starts from 2^0
 		for (int i = arrayOfDigits.length - 1; i >= 0; i--) {
-			int digitToDecimal = arrayOfDigits[i] * (int) Math.pow(2, powerTracker++);
+			// Check if value at current index is 1, since any 0s we don't need to do calculations for
+			if (arrayOfDigits[i] == 1) {
+				// Calculate value of current digit in decimal
+				int digitToDecimal = power(2, powerTracker);
+				// Updates result
+				result += digitToDecimal;
+			}
+			// Increment powerTracker 
+			powerTracker++;
 		}
 		
 		// TODO: Change to be actual converted number
-		return -1;
+		return result;
 	}
 	
 	/* 

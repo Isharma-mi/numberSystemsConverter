@@ -19,7 +19,7 @@ public class Main {
 				break;
 			}
 			
-			System.out.println(converter.power(2, 9));
+			
 			// Prints out converted binary to decimal
 			// TODO: Verify that input given is of correct format, keep as string but make sure its technically right
 			System.out.println(converter.binaryToDecimal(input));
