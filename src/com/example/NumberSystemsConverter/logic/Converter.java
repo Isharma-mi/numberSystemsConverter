@@ -1,21 +1,12 @@
 package com.example.NumberSystemsConverter.logic;
 
 public class Converter {
-	// Gets a binary num as a string and converts it to be a decimal number
-	public int binaryToDecimal(String binaryNum) {
+	// Gets a binary num as a string and converts it to be a long decimal number
+	
+	// Gets a binary num as a string and converts it to be an int decimal number
+	public int binaryToIntDecimal(String binaryNum) {
 		// Array that will contain each digit of the binaryNum, not needed but keep in case wanna show steps later
-		byte[] arrayOfDigits = new byte[binaryNum.length()];
-		
-		// Break down binaryNum input into separate digits stored in arrayOfDigits
-		for (int i = 0; i < binaryNum.length(); i++) {
-			/*
-			 * Takes each number from string as char and converts it to byte
-			 * In ASCII '0'  is 48 while '1' is 49
-			 * Subtract by '0' since binaryNum.charAt(i) will either be 49 or 48   
-			 */		
-			arrayOfDigits[i] = (byte) (binaryNum.charAt(i) - '0');
-			
-		}
+		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
 		
 		// Loop thru byte[] and convert each to an int
 		// TODO: Need to deal w/long values
@@ -39,13 +30,32 @@ public class Converter {
 		// TODO: Change to be actual converted number
 		return result;
 	}
+	/*
+	 * Helper method to break down a String of binaryNums to an array of bytes containing each digit separately
+	 * Separate method since it will be used for both the long and int decimal outcomes from binary conversion
+	 */
+	private byte[] createDigitsArray(String binaryNum) {
+		// Array that will contain each digit of the binaryNum
+		byte[] arrayOfDigits = new byte[binaryNum.length()];
+		// Break down binaryNum input into separate digits stored in arrayOfDigits
+		for (int i = 0; i < binaryNum.length(); i++) {
+			/*
+			 * Takes each number from string as char and converts it to byte
+			 * In ASCII '0'  is 48 while '1' is 49
+			 * Subtract by '0' since binaryNum.charAt(i) will either be 49 or 48   
+			 */		
+			arrayOfDigits[i] = (byte) (binaryNum.charAt(i) - '0');
+		}
+		
+		return arrayOfDigits;
+	}
 	
 	/* 
 	 * Helper method to calculate a number raised to a power
 	 * Done to take less time than Math.pow() and to avoid data conversion loss
 	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
 	 */
-	public int power(int base, int exponent) {
+	private int power(int base, int exponent) {
 		// Initialize to the base
 		int result = 1;
 		// Start from 0 so if exponent is 0 won't loop
@@ -54,4 +64,5 @@ public class Converter {
 		}
 		return result;
 	}
+
 }

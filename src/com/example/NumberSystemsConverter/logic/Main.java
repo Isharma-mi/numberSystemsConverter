@@ -22,7 +22,8 @@ public class Main {
 			
 			// Prints out converted binary to decimal
 			// TODO: Verify that input given is of correct format, keep as string but make sure its technically right
-			System.out.println(converter.binaryToDecimal(input));
+			// TODO: Check if number should be considered an int or long
+			System.out.println(converter.binaryToIntDecimal(input));
 			
 		}
 	}
