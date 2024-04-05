@@ -29,7 +29,7 @@ public class Converter {
 			if (arrayOfDigits[i] == 1) {
 				// Calculate value of current digit in decimal
 				int digitToDecimal = power(2, powerTracker);
-				// Updates result
+				// Updates result 
 				result += digitToDecimal;
 			}
 			// Increment powerTracker 
