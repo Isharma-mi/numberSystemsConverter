@@ -1,7 +1,6 @@
 package com.example.NumberSystemsConverter.logic;
 
-public class Converter {
-	// TODO: Gets a binary num as a string and converts it to be a long decimal number
+public class BinaryConverter {
 	public long binaryToLongDecimal(String binaryNum) {
 		// Array that will contain each digit of binaryNum
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
