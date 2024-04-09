@@ -8,18 +8,28 @@ public class Converter {
 		
 		// Keeps track of which exponent we are on
 		int powerTracker = 0;
-		// WIll store resulting value from conversion
+		// Will store resulting value from conversion
 		long result = 0;
+		
 		// Loop thru each byte starting from last number -> Exponent starts from 2^0s
 		for (int i = arrayOfDigits.length - 1; i >= 0; i--) {
-			// Check if value at current index is 1, don't need to do any calculations for 0s
 			if (arrayOfDigits[i] == 1) {
+				// Check if value at current index is 1, don't need to do any calculations for 0s
+				
 				// Calculate value of current digit in decimal and add it to result
 				result += this.powerLong(2, powerTracker);
 			}
 			// Increment powerTracker
 			powerTracker++;
 		}
+		
+		if (binaryNum.charAt(0) == '-') {
+			// Checks if binary num is negative
+			
+			// Makes result negative
+			result = -result;
+		}
+		
 		return result;
 	}
 	
@@ -42,6 +52,15 @@ public class Converter {
 			// Increment powerTracker 
 			powerTracker++;
 		}
+		
+		if (binaryNum.charAt(0) == '-') {
+			// Checks if binary num is negative
+			
+			// Makes result negative
+			result = -result;
+		}
+		
+		// Returns converted result
 		return result;
 	}
 	
@@ -58,7 +77,11 @@ public class Converter {
 			 * Takes each number from string as char and converts it to byte
 			 * In ASCII '0'  is 48 while '1' is 49
 			 * Subtract by '0' since binaryNum.charAt(i) will either be 49 or 48   
+			 * Ignores negative signs
 			 */		
+			if (binaryNum.charAt(i) == 'i') {
+				continue;
+			}
 			arrayOfDigits[i] = (byte) (binaryNum.charAt(i) - '0');
 		}
 		
