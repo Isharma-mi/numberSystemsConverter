@@ -1,35 +1,50 @@
 package com.example.NumberSystemsConverter.logic;
 
 public class Converter {
-	// Gets a binary num as a string and converts it to be a long decimal number
+	// TODO: Gets a binary num as a string and converts it to be a long decimal number
+	public long binaryToLongDecimal(String binaryNum) {
+		// Array that will contain each digit of binaryNum
+		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
+		
+		// Keeps track of which exponent we are on
+		int powerTracker = 0;
+		// WIll store resulting value from conversion
+		long result = 0;
+		// Loop thru each byte starting from last number -> Exponent starts from 2^0s
+		for (int i = arrayOfDigits.length - 1; i >= 0; i--) {
+			// Check if value at current index is 1, don't need to do any calculations for 0s
+			if (arrayOfDigits[i] == 1) {
+				// Calculate value of current digit in decimal and add it to result
+				result += this.powerLong(2, powerTracker);
+			}
+			// Increment powerTracker
+			powerTracker++;
+		}
+		return result;
+	}
 	
 	// Gets a binary num as a string and converts it to be an int decimal number
 	public int binaryToIntDecimal(String binaryNum) {
-		// Array that will contain each digit of the binaryNum, not needed but keep in case wanna show steps later
+		// Array that will contain each digit of binaryNum
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
 		
-		// Loop thru byte[] and convert each to an int
-		// TODO: Need to deal w/long values
 		// Keeps track of which exponent we are on
 		int powerTracker = 0;
 		// Will store resulting value from conversion
 		int result = 0;
 		//Loop through each byte starting from last number -> Exponent starts from 2^0
 		for (int i = arrayOfDigits.length - 1; i >= 0; i--) {
-			// Check if value at current index is 1, since any 0s we don't need to do calculations for
+			// Check if value at current index is 1, don't need to do any calculations for 0s
 			if (arrayOfDigits[i] == 1) {
-				// Calculate value of current digit in decimal
-				int digitToDecimal = power(2, powerTracker);
-				// Updates result 
-				result += digitToDecimal;
+				// Calculate value of current digit in decimal and add it to result 
+				result += powerInt(2, powerTracker);
 			}
 			// Increment powerTracker 
 			powerTracker++;
 		}
-		
-		// TODO: Change to be actual converted number
 		return result;
 	}
+	
 	/*
 	 * Helper method to break down a String of binaryNums to an array of bytes containing each digit separately
 	 * Separate method since it will be used for both the long and int decimal outcomes from binary conversion
@@ -51,18 +66,33 @@ public class Converter {
 	}
 	
 	/* 
-	 * Helper method to calculate a number raised to a power
+	 * Helper method to calculate a number raised to a power (for int values)
 	 * Done to take less time than Math.pow() and to avoid data conversion loss
 	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
 	 */
-	private int power(int base, int exponent) {
-		// Initialize to the base
+	private int powerInt(int base, int exponent) {
+		// Will contain final result
 		int result = 1;
+		
 		// Start from 0 so if exponent is 0 won't loop
 		for (int i = 0; i < exponent; i++) {
 			result *= base ;
 		}
 		return result;
 	}
+	/* 
+	 * Helper method to calculate a number raised to a power (for long values)
+	 * Done to take less time than Math.pow() and to avoid data conversion loss
+	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
+	 */
+	private long powerLong(int base, int exponent) {
+		// Will contain final result
+		long result = 1;
 
+		// Start from 0, if exponent is 0 won't loop
+		for (int i = 0; i < exponent; i++) {
+			result *= base;
+		}
+		return result;
+	}
 }
