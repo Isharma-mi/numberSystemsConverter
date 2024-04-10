@@ -6,7 +6,6 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
-		
 		// For repeatedly asking for input
 		while (true) {
 			System.out.println("------------What kind of conversion are you wanting to perform?------------");
@@ -28,6 +27,7 @@ public class Main {
 				
 				// Asks for binary number
 				System.out.println("What is the binary number?");
+				// TODO: Verify that input given is of correct format, keep as string but make sure its technically right
 				// Gets number input as string
 				String binaryNumberInString = scanner.nextLine();
 				// Performs calculations and will print output
@@ -38,10 +38,8 @@ public class Main {
 				System.out.println("Please pick a valid option!");
 			}
 			
-			// 
+			// For adding gap in console to make it more readable
 			System.out.println();
-			
-			// TODO: Verify that input given is of correct format, keep as string but make sure its technically right
 		}
 	}
 	
