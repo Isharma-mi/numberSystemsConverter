@@ -5,12 +5,19 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+
+// TESTING CODE START 
+		DecimalConverter deci = new DecimalConverter();
+		
+		String num = "-437626";
+		System.out.println(deci.decimalToBinary(num));
+// TESTING CODE END
 		
 		// For repeatedly asking for input
 		while (true) {
 			System.out.println("------------What kind of conversion are you wanting to perform?------------");
-			System.out.println("1: Binary to Decimal "
-					+ "\n2:Decimal to Binary"
+			System.out.println("1: Binary to Decimal"
+					+ "\n2: Decimal to Binary"
 					+ "\nEnd: Type end to stop program");
 			
 			// Gets user input
@@ -23,16 +30,22 @@ public class Main {
 				scanner.close();
 				break;
 			} else if (input.equals("1")) {
-				// Performs binary conversion
+				// Performs decimal to binary conversion
 				
 				// Asks for binary number
 				System.out.println("What is the binary number?");
-				// TODO: Verify that input given is of correct format, keep as string but make sure its technically right
+				// TODO: Verify that input given is of correct format (keep as string but make sure its technically right)
 				// Gets number input as string
 				String binaryNumberInString = scanner.nextLine();
 				// Performs calculations and will print output
 				binaryConversion(binaryNumberInString);
-			} else {
+			} else if (input.equals("2")) {
+				// Performs binary to decimal conversion
+				System.out.println("What is the decimal number?");
+				// TODO: Verify that input given is of correct format (keep as string but make sure its technically right)
+				// Gets binary number input as string
+				
+			}else {
 				// For invalid options
 				
 				System.out.println("Please pick a valid option!");
