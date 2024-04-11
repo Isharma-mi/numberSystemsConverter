@@ -9,7 +9,7 @@ public class Main {
 // TESTING CODE START 
 		DecimalConverter deci = new DecimalConverter();
 		
-		String num = "-437626";
+		String num = "-12345678901234";
 		System.out.println(deci.decimalToBinary(num));
 // TESTING CODE END
 		
