@@ -27,11 +27,17 @@ public class Main {
 				
 				// Asks for binary number
 				System.out.println("What is the binary number?");
-				// TODO: Verify that input given is of correct format (keep as string but make sure its technically right)
 				// Gets number input as string
 				String binaryNumberInString = scanner.nextLine();
-				// Performs calculations and will print output
-				binaryConversion(binaryNumberInString);
+				
+				if (binaryNumberInString.matches("[01]+")) {
+					// Makes sure input is a binary number by checking it only contains 0s and 1s
+					
+					// Performs calculations and will print output
+					binaryConversion(binaryNumberInString);
+				} else {
+					System.out.println("ERROR: Binary number was not give.");
+				}
 			} else if (input.equals("2")) {
 				// Performs binary to decimal conversion
 				
@@ -44,7 +50,7 @@ public class Main {
 				decimalConversion(decimalNumberInString);
 			}else {
 				// For invalid options
-				
+
 				System.out.println("Please pick a valid option!");
 			}
 			
@@ -139,7 +145,7 @@ public class Main {
 	/*
 	 * Method that will contain all the code that is involved in converting a decimal num to binary num
 	 * Used to help reduce clutter in main method
-	 * void -> Printing out result in a string
+	 * void since dealing with either an int or long result -> Printing out result in a string
 	 */
 	public static void decimalConversion(String input) {
 		DecimalConverter deci = new DecimalConverter();
