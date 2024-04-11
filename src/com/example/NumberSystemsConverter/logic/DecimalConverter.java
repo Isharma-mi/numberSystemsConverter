@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class DecimalConverter {
 
-	// TODO: Deal w/negative, see if negative number deal w/as positive -> add negative at end of conversion
 	// TODO: Verify parameter is correct in Main
 	public String decimalToBinary(String decimalNumber) {
 		// String that will store the converted result, initialize to be empty
@@ -37,6 +36,6 @@ public class DecimalConverter {
 		}
 		
 		// Returns converted value as a String
-		return "Result: " + result;
+		return result;
 	}
 }

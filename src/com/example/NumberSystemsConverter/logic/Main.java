@@ -5,13 +5,6 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-
-// TESTING CODE START 
-		DecimalConverter deci = new DecimalConverter();
-		
-		String num = "-12345678901234";
-		System.out.println(deci.decimalToBinary(num));
-// TESTING CODE END
 		
 		// For repeatedly asking for input
 		while (true) {
@@ -41,10 +34,14 @@ public class Main {
 				binaryConversion(binaryNumberInString);
 			} else if (input.equals("2")) {
 				// Performs binary to decimal conversion
+				
+				// Asks for decimal number
 				System.out.println("What is the decimal number?");
 				// TODO: Verify that input given is of correct format (keep as string but make sure its technically right)
 				// Gets binary number input as string
-				
+				String decimalNumberInString = scanner.nextLine();
+				// Performs calculations and will print output
+				decimalConversion(decimalNumberInString);
 			}else {
 				// For invalid options
 				
@@ -137,5 +134,16 @@ public class Main {
 		
 		// Prints out Result: Converted #
 		System.out.println(result);
+	}
+
+	/*
+	 * Method that will contain all the code that is involved in converting a decimal num to binary num
+	 * Used to help reduce clutter in main method
+	 * void -> Printing out result in a string
+	 */
+	public static void decimalConversion(String input) {
+		DecimalConverter deci = new DecimalConverter();
+		
+		System.out.println("Result: "+ deci.decimalToBinary(input));
 	}
 }
