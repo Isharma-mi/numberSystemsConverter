@@ -1,6 +1,7 @@
 package com.example.NumberSystemsConverter.logic;
 
 public class BinaryConverter {
+	// Gets a binary num as a String and converts it into a long decimal number
 	public long binaryToLongDecimal(String binaryNum) {
 		// Array that will contain each digit of binaryNum
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
@@ -32,7 +33,7 @@ public class BinaryConverter {
 		return result;
 	}
 	
-	// Gets a binary num as a string and converts it to be an int decimal number
+	// Gets a binary num as a string and converts it into an int decimal number
 	public int binaryToIntDecimal(String binaryNum) {
 		// Array that will contain each digit of binaryNum
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
@@ -66,7 +67,7 @@ public class BinaryConverter {
 	/*
 	 * Helper method to break down a String of binaryNums to an array of bytes containing each digit separately
 	 * Separate method since it will be used for both the long and int decimal outcomes from binary conversion
-	 */
+1111100	 */
 	private byte[] createDigitsArray(String binaryNum) {
 		// Array that will contain each digit of the binaryNum
 		byte[] arrayOfDigits = new byte[binaryNum.length()];

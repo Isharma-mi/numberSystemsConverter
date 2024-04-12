@@ -9,8 +9,8 @@ public class Main {
 		// For repeatedly asking for input
 		while (true) {
 			System.out.println("------------What kind of conversion are you wanting to perform?------------");
-			System.out.println("1: Binary to Decimal "
-					+ "\n2:Decimal to Binary"
+			System.out.println("1: Binary to Decimal"
+					+ "\n2: Decimal to Binary"
 					+ "\nEnd: Type end to stop program");
 			
 			// Gets user input
@@ -23,18 +23,40 @@ public class Main {
 				scanner.close();
 				break;
 			} else if (input.equals("1")) {
-				// Performs binary conversion
+				// Performs decimal to binary conversion
 				
 				// Asks for binary number
 				System.out.println("What is the binary number?");
-				// TODO: Verify that input given is of correct format, keep as string but make sure its technically right
 				// Gets number input as string
 				String binaryNumberInString = scanner.nextLine();
-				// Performs calculations and will print output
-				binaryConversion(binaryNumberInString);
+				
+				if (binaryNumberInString.matches("[-01]+")) {
+					// Makes sure input is a binary number by checking it only contains 0s and 1s
+					
+					// Performs calculations and will print output
+					binaryConversion(binaryNumberInString);
+				} else {
+					System.out.println("ERROR: Binary number was not given.");
+				}
+			} else if (input.equals("2")) {
+				// Performs binary to decimal conversion
+				
+				// Asks for decimal number
+				System.out.println("What is the decimal number?");
+				// Gets binary number input as string
+				String decimalNumberInString = scanner.nextLine();
+				
+				if (decimalNumberInString.matches("[-0123456789]+")) {
+					// Makes sure input is a decimal number and does not contain any letters
+
+					// Performs calculations and will print output
+					decimalConversion(decimalNumberInString);					
+				} else {
+					System.out.println("ERROR: Decimal number was not given.");
+				}
 			} else {
 				// For invalid options
-				
+
 				System.out.println("Please pick a valid option!");
 			}
 			
@@ -64,26 +86,21 @@ public class Main {
 		if (!isNegative) {
 			// If dealing with a positive binary number
 			
-			System.out.println("TESTING: Positive input");
 			if (input.length() < 32) {
 				// If there are 31 digits in our positive input -> int
 				
-				System.out.println("TESTING: Converting to int");
 				result = "Result: " + binaryConverter.binaryToIntDecimal(input);		
 			} else {
 				// If there are 32 or more digits in our positive input -> long
 				
-				System.out.println("TESTING: Converting to long");
 				result = "Result: " + binaryConverter.binaryToLongDecimal(input);
 			}
 		} else {
 			// If dealing with a negative binary number
 			
-			System.out.println("TESTING: Negative input");
 			if (input.length() < 32) {
 				// If input is 31 digits and 1 - sign -> int
 				
-				System.out.println("TESTING: Converting to int");
 				result = "Result: " + binaryConverter.binaryToIntDecimal(input);
 			} else if (input.length() == 33) {
 				// If input is 32 digits and 1 - sign
@@ -108,10 +125,9 @@ public class Main {
 				}
 				
 				if (convertToLong) {
-					System.out.println("TESTING: Converting to long");
 					result = "Result: " + binaryConverter.binaryToLongDecimal(input);
 				} else {
-					System.out.println("TESTING: Converting to int");
+
 					result = "Result: " + binaryConverter.binaryToIntDecimal(input);
 				}
 			} else {
@@ -124,5 +140,16 @@ public class Main {
 		
 		// Prints out Result: Converted #
 		System.out.println(result);
+	}
+
+	/*
+	 * Method that will contain all the code that is involved in converting a decimal num to binary num
+	 * Used to help reduce clutter in main method
+	 * void since dealing with either an int or long result -> Printing out result in a string
+	 */
+	public static void decimalConversion(String input) {
+		DecimalConverter deci = new DecimalConverter();
+		
+		System.out.println("Result: "+ deci.decimalToBinary(input));
 	}
 }
