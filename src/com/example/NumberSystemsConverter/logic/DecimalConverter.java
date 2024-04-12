@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class DecimalConverter {
 
-	// TODO: Verify parameter is correct in Main
 	public String decimalToBinary(String decimalNumber) {
 		// String that will store the converted result, initialize to be empty
 		String result = "";
