@@ -5,9 +5,8 @@ import java.util.ArrayList;
 
 public class DecimalConverter {
 
-	//Gets a decimal num as a String and converts it into a binary number as a String
 	public String decimalToBinary(String decimalNumber) {
-		// Will store the converted result, initialize to be empty
+		// String that will store the converted result, initialize to be empty
 		String result = "";
 		boolean isNegative = false;
 		

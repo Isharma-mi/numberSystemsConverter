@@ -11,8 +11,7 @@ public class Main {
 			System.out.println("------------What kind of conversion are you wanting to perform?------------");
 			System.out.println("1: Binary to Decimal"
 					+ "\n2: Decimal to Binary"
-					+ "\n3: Octal to Binary"
-					+ "\nend: Type end to stop program");
+					+ "\nEnd: Type end to stop program");
 			
 			// Gets user input
 			String input = scanner.nextLine();
@@ -55,12 +54,7 @@ public class Main {
 				} else {
 					System.out.println("ERROR: Decimal number was not given.");
 				}
-			} else if (input.equals("3")){
-				// Performs octal to binary conversion
-				System.out.println("What is the octal number?");
-				// Gets octal number as string
-				String octalNumberInString = scanner.nextLine();
-			} else {	
+			} else {
 				// For invalid options
 
 				System.out.println("Please pick a valid option!");
@@ -72,7 +66,7 @@ public class Main {
 	}
 	
 	/*
-	 * Method that contains all the code that is involved in converting a binary num to decimal num
+	 * Method that will contain all the code that is involved in converting a binary num to decimal num
 	 * Used to help reduce clutter in main method
 	 * void since dealing with either an int or long result -> Printing out result in a string
 	 */
@@ -157,14 +151,5 @@ public class Main {
 		DecimalConverter deci = new DecimalConverter();
 		
 		System.out.println("Result: "+ deci.decimalToBinary(input));
-	}
-
-	/*
-	 * Method that contains all the code that is involved in converting a octal num to binary num
-	 * Used to help reduce clutter in main method
-	 * void since dealing with either an int or long result -> Printing out result in a string
-	 */
-	public static void octalConversion(String input) {
-		// TODO: Get number conversion done here
 	}
 }
