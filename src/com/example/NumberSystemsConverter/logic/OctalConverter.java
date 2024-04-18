@@ -6,7 +6,53 @@ public class OctalConverter {
 		// Will store the converted results
 		String result = "";
 		
+		// Loop thru each digit of input and convert to binary
+		for (int i = 0; i < input.length(); i++) {
+			result += digitToOctal(input.charAt(i));
+		}
+		
 		// Returns converted value as a String
+		return result;
+	}
+	
+	
+	/* 
+	 * Helper method to convert a digit into the octal form
+	 * Done to make octalToBinary method more clean to read
+	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
+	 */
+	private String digitToOctal(char digit) {
+		// Will store converted results
+		String result = "";
+		switch(digit) {
+			case '0':
+				result = "000";
+				break;
+			case '1':
+				result = "001";
+				break;
+			case '2':
+				result = "010";
+				break;
+			case '3':
+				result = "011";
+				break;
+			case '4':
+				result = "100";
+				break;
+			case '5':
+				result = "101";
+				break;
+			case '6':
+				result = "110";
+				break;
+			case '7':
+				result = "111";
+				break;
+			default:
+				result = "ERROR: Couldn't convert digit into octal equivalent";
+				break;
+		}
 		return result;
 	}
 }

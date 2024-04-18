@@ -56,9 +56,17 @@ public class Main {
 					System.out.println("ERROR: Decimal number was not given.");
 				}
 			} else if (input.equals("3")){
-				// TODO: Verify input is correct for octal number
 				// Performs octal to binary conversion
-				octalConversion(input);
+				
+				// Asks for octal number
+				System.out.println("What is the octal number?");
+				
+				// TODO: Verify input is correct
+				// Gets input
+				String octalNumberInString = scanner.nextLine();
+				
+				// Performs octal to binary conversion
+				octalConversion(octalNumberInString);
 				
 			} else {
 				// For invalid options
@@ -165,6 +173,8 @@ public class Main {
 	 * void since dealing with either an int or long result -> Printing out result in a string
 	 */	
 	public static void octalConversion(String input) {
-		// TODO: Put converter here and do conversion with it
+		OctalConverter oct = new OctalConverter();
+		
+		System.out.println("Result: " + oct.octalToBinary(input));
 	}
 }
