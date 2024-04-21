@@ -65,8 +65,12 @@ public class Main {
 				// Gets input
 				String octalNumberInString = scanner.nextLine();
 				
-				// Performs octal to binary conversion
-				octalConversion(octalNumberInString);
+				if (octalNumberInString.matches("[-01234567]+")) {
+					// Performs octal to binary conversion and will print output
+					octalConversion(octalNumberInString);	
+				} else {
+					System.out.println("ERROR: Octal number was not given.");
+				}
 				
 			} else {
 				// For invalid options
@@ -84,7 +88,7 @@ public class Main {
 	 * Used to help reduce clutter in main method
 	 * void since dealing with either an int or long result -> Printing out result in a string
 	 */
-	public static void binaryConversion(String input) {
+	private static void binaryConversion(String input) {
 		BinaryConverter binaryConverter = new BinaryConverter();
 		boolean isNegative = false;
 		// Set return var to this to know if error occurred during conversion
@@ -161,7 +165,7 @@ public class Main {
 	 * Used to help reduce clutter in main method
 	 * void since dealing with either an int or long result -> Printing out result in a string
 	 */
-	public static void decimalConversion(String input) {
+	private static void decimalConversion(String input) {
 		DecimalConverter deci = new DecimalConverter();
 		
 		System.out.println("Result: "+ deci.decimalToBinary(input));
@@ -172,7 +176,7 @@ public class Main {
 	 * Used to help reduce clutter in main method
 	 * void since dealing with either an int or long result -> Printing out result in a string
 	 */	
-	public static void octalConversion(String input) {
+	private static void octalConversion(String input) {
 		OctalConverter oct = new OctalConverter();
 		
 		System.out.println("Result: " + oct.octalToBinary(input));
