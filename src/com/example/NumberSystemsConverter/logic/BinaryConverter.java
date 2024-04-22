@@ -67,7 +67,7 @@ public class BinaryConverter {
 	/*
 	 * Helper method to break down a String of binaryNums to an array of bytes containing each digit separately
 	 * Separate method since it will be used for both the long and int decimal outcomes from binary conversion
-1111100	 */
+	*/
 	private byte[] createDigitsArray(String binaryNum) {
 		// Array that will contain each digit of the binaryNum
 		byte[] arrayOfDigits = new byte[binaryNum.length()];

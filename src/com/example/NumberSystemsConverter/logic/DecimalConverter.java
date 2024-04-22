@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class DecimalConverter {
-
+	// Gets a decimal num as a String and converts it into a binary num
 	public String decimalToBinary(String decimalNumber) {
 		// String that will store the converted result, initialize to be empty
 		String result = "";
