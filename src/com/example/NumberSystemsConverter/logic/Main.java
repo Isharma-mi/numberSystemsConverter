@@ -1,9 +1,20 @@
 package com.example.NumberSystemsConverter.logic;
 
 import java.util.Scanner;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Main {
+public class Main extends Application {
+	
+	@Override
+	public void start(Stage stage) {
+		stage.setTitle("Number Converter");
+		stage.show();
+	}
+	
 	public static void main(String[] args) {
+		launch(Main.class);
+		
 		Scanner scanner = new Scanner(System.in);
 		
 		// For repeatedly asking for input
