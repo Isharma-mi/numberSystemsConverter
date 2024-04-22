@@ -5,9 +5,18 @@ public class OctalConverter {
 		// TODO: Implement conversion
 		// Will store the converted results
 		String result = "";
+		boolean isNegative = false;
 		
+		if (input.charAt(0) == '-') {
+			// Checks whether or not the octal number is a negative
+			isNegative = true;
+			result = "-";
+		}
+		
+		// Loop variable start from first char or second digit depending on if there is a - sign
+		int i = isNegative ? 1:0;
 		// Loop thru each digit of input and convert to binary
-		for (int i = 0; i < input.length(); i++) {
+		for (; i < input.length(); i++) {
 			result += digitToOctal(input.charAt(i));
 		}
 		
