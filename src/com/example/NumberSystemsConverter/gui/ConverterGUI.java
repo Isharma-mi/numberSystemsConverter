@@ -3,7 +3,6 @@ package com.example.NumberSystemsConverter.gui;
 import com.example.NumberSystemsConverter.logic.Converter;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,6 +17,7 @@ public class ConverterGUI {
 	public Parent getView() {
 		// TODO: Add all components
 		// TODO: Actually perform conversions, clean up Main as well
+		// TODO: Create helper method with putting error message in convertedResultField
 		
 		// For the components on the left side 
 		Label inputLabel = new Label("Number to convert:");
@@ -52,35 +52,65 @@ public class ConverterGUI {
 		convertButton.setOnMouseClicked((event) -> {
 			// Gets the selected item from dropdown menu by its index
 			int conversionSelected = conversionsChoiceBox.getSelectionModel().getSelectedIndex();
+			// Gets the number user wants converted
+			String numberToConvert = numberToConvertField.getText();
 			
-			// To perform conversion specified by user
-			switch (conversionSelected) {
-				case 0:
-					// TODO: Implement binary to decimal conversion here
-					Converter converter = new Converter();
-					
-					if (numberToConvertField.getText().matches("[-01]+")) {
-						// TODO: Check what happens if negative sign in middle
-						
-						convertedResultField.setText(converter.binaryConversion(numberToConvertField.getText()));
-					} else {
-						convertedResultField.setText("ERROR: Binary number was not given");
-					}
-					
-					break;
-				case 1:
-					// TODO: Implement decimal to binary conversion here
-					break;
-				case 2:
-					// TODO: Implement octal to binary conversion here
-					break;
-				default:
-					// If user tries to convert with no option selected
-					convertedResultField.setText("ERROR: Please select a conversion");
-			}
+			// Uses helper method to perform conversion and update display
+			performConversion(conversionSelected, convertedResultField, numberToConvert);
+			
 		});
 			
 		return layout;
+	}
+	
+	/*
+	 * Method that contains code in performing actual conversion
+	 * 
+	 * String return type to make it easier for outputting
+	 */
+	private void performConversion(int conversionSelected, TextField convertedResultField, String numberToConvert) {
+		// Creates Converter object to perform conversions after validating input
+		Converter converter = new Converter();
+		
+		// To perform conversion specified by user
+		switch (conversionSelected) {
+			case 0:
+				if (numberToConvert.matches("^[-01][01]*")) {
+					// Converts binary num to decimal and updates text field to show it
+					
+					convertedResultField.setText(converter.binaryConversion(numberToConvert));
+				} else {
+					// Lets user know incorrect number was given 
+					
+					convertedResultField.setText("ERROR: Binary number was not given");
+				}
+				break;
+			case 1:
+				if (numberToConvert.matches("^[-0123456789][0123456789]*")) {
+					// Converts decimal num to binary and updates text field to show it
+
+					convertedResultField.setText(converter.decimalConversion(numberToConvert));					
+				} else {
+					// Lets user know an incorrect number was given
+					
+					convertedResultField.setText("ERROR: Decimal number was not given.");
+				}
+				break;
+			case 2:
+				// TODO: Implement octal to binary conversion here, cleanup 0s in front and end
+				
+				if (numberToConvert.matches("^[-01234567][01234567]*")) {
+					// Performs octal to binary conversion and will print output
+					
+					convertedResultField.setText(converter.octalConversion(numberToConvert));	
+				} else {
+					convertedResultField.setText("ERROR: Octal number was not given");
+				}
+				break;
+			default:
+				// If user tries to convert with no option selected
+				convertedResultField.setText("ERROR: Please select a conversion");
+		}
 	}
 	
 	

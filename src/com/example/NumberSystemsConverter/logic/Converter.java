@@ -6,7 +6,7 @@ public class Converter {
 	/*
 	 * Method that will contain all the code that is involved in converting a binary num to decimal num
 	 * Specifically helps determine if conversion will be calculated as an int or long
-	 * void since dealing with either an int or long result -> Printing out result in a string
+	 * String return type to make it easier for outputting
 	 */
 	public String binaryConversion(String input) {
 		BinaryConverter binaryConverter = new BinaryConverter();
@@ -78,4 +78,26 @@ public class Converter {
 		// Prints out Result: Converted #
 		return result;
 	}
+
+	/*
+	 * Method that will contain all the code that is involved in converting a decimal num to binary num
+	 * String return type to make it easier for outputting
+	 */
+	public String decimalConversion(String input) {
+		DecimalConverter deci = new DecimalConverter();
+		
+		return deci.decimalToBinary(input);
+	}
+	
+	/*
+	 * Method that will contain all the code that is involved in converting an octal num to binary num
+	 * Used to help reduce clutter in main method
+	 * String return type to make it easier for outputting
+	 */	
+	public String octalConversion(String input) {
+		OctalConverter oct = new OctalConverter();
+		
+		return oct.octalToBinary(input);
+	}
 }
+
