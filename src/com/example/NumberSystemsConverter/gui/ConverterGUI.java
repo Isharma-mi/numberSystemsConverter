@@ -1,5 +1,7 @@
 package com.example.NumberSystemsConverter.gui;
 
+import com.example.NumberSystemsConverter.logic.Converter;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -55,6 +57,16 @@ public class ConverterGUI {
 			switch (conversionSelected) {
 				case 0:
 					// TODO: Implement binary to decimal conversion here
+					Converter converter = new Converter();
+					
+					if (numberToConvertField.getText().matches("[-01]+")) {
+						// TODO: Check what happens if negative sign in middle
+						
+						convertedResultField.setText(converter.binaryConversion(numberToConvertField.getText()));
+					} else {
+						convertedResultField.setText("ERROR: Binary number was not given");
+					}
+					
 					break;
 				case 1:
 					// TODO: Implement decimal to binary conversion here
@@ -70,4 +82,6 @@ public class ConverterGUI {
 			
 		return layout;
 	}
+	
+	
 }
