@@ -1,9 +1,13 @@
 package com.example.NumberSystemsConverter.logic;
 
 public class OctalConverter {
+	/**
+	 * Converts an octal number into a binary number
+	 * @param input octal number that is to be converted
+	 * @return String contains the binary result from conversion
+	 */
 	public String octalToBinary(String input) {
-		// TODO: Implement conversion
-		// Will store the converted results
+		// Will store the converted result
 		String result = "";
 		boolean isNegative = false;
 		
@@ -25,10 +29,10 @@ public class OctalConverter {
 	}
 	
 	
-	/* 
-	 * Helper method to convert a digit into the octal form
-	 * Done to make octalToBinary method more clean to read
-	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
+	/**
+	 * Helper method that converts a digit into the octal form
+	 * @param digit octal digit that will be converted into its binary equivalent
+	 * @return String contains the binary result from conversion
 	 */
 	private String digitToOctal(char digit) {
 		// Will store converted results

@@ -1,12 +1,15 @@
 package com.example.NumberSystemsConverter.logic;
 
 public class Converter {
-
+	/* Exists to contains all the different conversions in one object
+	 * Makes it easier than having an object for each type of conversion
+	 */
 	
-	/*
-	 * Method that will contain all the code that is involved in converting a binary num to decimal num
-	 * Specifically helps determine if conversion will be calculated as an int or long
-	 * String return type to make it easier for outputting
+	/**
+	 * Performs binary to decimal conversion in different ways depending 
+	 * on input.
+	 * @param input number that user wants to convert to decimal
+	 * @return String contains the converted number
 	 */
 	public String binaryConversion(String input) {
 		BinaryConverter binaryConverter = new BinaryConverter();
@@ -79,9 +82,10 @@ public class Converter {
 		return result;
 	}
 
-	/*
-	 * Method that will contain all the code that is involved in converting a decimal num to binary num
-	 * String return type to make it easier for outputting
+	/**
+	 * Performs decimal to binary conversion.
+	 * @param input number that user wants to convert to binary
+	 * @return String that will contain the converted number
 	 */
 	public String decimalConversion(String input) {
 		DecimalConverter deci = new DecimalConverter();
@@ -89,11 +93,11 @@ public class Converter {
 		return deci.decimalToBinary(input);
 	}
 	
-	/*
-	 * Method that will contain all the code that is involved in converting an octal num to binary num
-	 * Used to help reduce clutter in main method
-	 * String return type to make it easier for outputting
-	 */	
+	/**
+	 * Performs octal to binary conversion.
+	 * @param input
+	 * @return String contains the converted number
+	 */
 	public String octalConversion(String input) {
 		OctalConverter oct = new OctalConverter();
 		

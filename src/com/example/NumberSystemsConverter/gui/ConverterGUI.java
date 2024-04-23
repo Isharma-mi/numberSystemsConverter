@@ -15,10 +15,6 @@ import javafx.scene.Parent;
 public class ConverterGUI {
 	
 	public Parent getView() {
-		// TODO: Add all components
-		// TODO: Actually perform conversions, clean up Main as well
-		// TODO: Create helper method with putting error message in convertedResultField
-		
 		// For the components on the left side 
 		Label inputLabel = new Label("Number to convert:");
 		TextField numberToConvertField = new TextField();
@@ -56,19 +52,21 @@ public class ConverterGUI {
 			String numberToConvert = numberToConvertField.getText();
 			
 			// Uses helper method to perform conversion and update display
-			performConversion(conversionSelected, convertedResultField, numberToConvert);
+			performConversion(numberToConvert, conversionSelected, convertedResultField);
 			
 		});
 			
 		return layout;
 	}
 	
-	/*
-	 * Method that contains code in performing actual conversion
-	 * 
-	 * String return type to make it easier for outputting
+	/**
+	 * Converts a given number into a number of a different number system
+	 * and updates a TextField with that number.
+	 * @param numberToConvert number user wants converted
+	 * @param conversionSelected type of conversion user wants to do
+	 * @param convertedResultField TextField where converted result is put in
 	 */
-	private void performConversion(int conversionSelected, TextField convertedResultField, String numberToConvert) {
+	private void performConversion(String numberToConvert, int conversionSelected, TextField convertedResultField) {
 		// Creates Converter object to perform conversions after validating input
 		Converter converter = new Converter();
 		
@@ -112,6 +110,4 @@ public class ConverterGUI {
 				convertedResultField.setText("ERROR: Please select a conversion");
 		}
 	}
-	
-	
 }

@@ -2,7 +2,11 @@ package com.example.NumberSystemsConverter.logic;
 
 
 public class DecimalConverter {
-	// Gets a decimal num as a String and converts it into a binary num
+	/**
+	 * Converts a decimal number into a binary number
+	 * @param decimalNumber decimal number that is to be converted
+	 * @return result string that will contain the binary result from conversion
+	 */
 	public String decimalToBinary(String decimalNumber) {
 		// String that will store the converted result, initialize to be empty
 		String result = "";

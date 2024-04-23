@@ -1,7 +1,12 @@
 package com.example.NumberSystemsConverter.logic;
 
 public class BinaryConverter {
-	// Gets a binary num as a String and converts it into a long decimal number
+	/**
+	 * Converts a binary number into a decimal number as a long. Done when
+	 * to show knowledge of when to use int vs long
+	 * @param binaryNum binary number that is to be converted
+	 * @return long contains the decimal result from conversion
+	 */
 	public long binaryToLongDecimal(String binaryNum) {
 		// Array that will contain each digit of binaryNum
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
@@ -33,7 +38,12 @@ public class BinaryConverter {
 		return result;
 	}
 	
-	// Gets a binary num as a string and converts it into an int decimal number
+	/**
+	 * Converts a binary number into a decimal number as a long. Done to
+	 * show knowledge of when to use int vs long
+	 * @param binaryNum binary number that is to be converted
+	 * @return int contains the decimal result from conversion
+	 */
 	public int binaryToIntDecimal(String binaryNum) {
 		// Array that will contain each digit of binaryNum
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
@@ -64,10 +74,14 @@ public class BinaryConverter {
 		return result;
 	}
 	
-	/*
-	 * Helper method to break down a String of binaryNums to an array of bytes containing each digit separately
-	 * Separate method since it will be used for both the long and int decimal outcomes from binary conversion
-	*/
+	/**
+	 * Helper method to break down a String of binaryNums to an array of
+	 * bytes containing each digit separately. Separate method since it 
+	 * will be used for both long and int decimal outcomes from binary
+	 * conversion
+	 * @param binaryNum binaryNum that will be broken by each digit
+	 * @return byte[] each digit of binaryNumb stored sep'ly in an array
+	 */
 	private byte[] createDigitsArray(String binaryNum) {
 		// Array that will contain each digit of the binaryNum
 		byte[] arrayOfDigits = new byte[binaryNum.length()];
@@ -88,10 +102,13 @@ public class BinaryConverter {
 		return arrayOfDigits;
 	}
 	
-	/* 
-	 * Helper method to calculate a number raised to a power (for int values)
-	 * Done to take less time than Math.pow() and to avoid data conversion loss
-	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
+	/**
+	 * Helper method used to calculate a number raised to a power (for 
+	 * int values). Done to take less time that Math.pow() and to avoid 
+	 * data conversion loss. 
+	 * @param base number that will be raised to an exponent 
+	 * @param exponent number that is the exponent to which base is raised
+	 * @return int  contains the resulting power of base to the exponent
 	 */
 	private int powerInt(int base, int exponent) {
 		// Will contain final result
@@ -103,10 +120,14 @@ public class BinaryConverter {
 		}
 		return result;
 	}
-	/* 
-	 * Helper method to calculate a number raised to a power (for long values)
-	 * Done to take less time than Math.pow() and to avoid data conversion loss
-	 * Don't need to verify input since its a helper method, just need to make sure it receives valid arguments
+	
+	/**
+	 * Helper method used to calculate a number raised to a power (for 
+	 * long values). Done to take less time that Math.pow() and to avoid 
+	 * data conversion loss. 
+	 * @param base number that will be raised to an exponent 
+	 * @param exponent number that is the exponent to which base is raised
+	 * @return long contains the resulting power of base to the exponent
 	 */
 	private long powerLong(int base, int exponent) {
 		// Will contain final result
