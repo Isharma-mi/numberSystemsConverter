@@ -15,14 +15,14 @@ import javafx.scene.Parent;
 public class ConverterGUI {
 	
 	public Parent getView() {
-		// For the components on the left side 
+		// For the components on the left side GUI
 		Label inputLabel = new Label("Number to convert:");
 		TextField numberToConvertField = new TextField();
 		
 		VBox leftBox = new VBox();
 		leftBox.getChildren().addAll(inputLabel, numberToConvertField);
 		
-		// For components on the center
+		// For components on the center of GUI 
 		Button convertButton = new Button("Convert!");
 		String[] conversionsArray = {"Binary to Decimal", "Decimal to Binary", "Octal to Binary"};
 		ChoiceBox<String> conversionsChoiceBox = new ChoiceBox<String>(FXCollections.observableArrayList(conversionsArray));
@@ -30,7 +30,7 @@ public class ConverterGUI {
 		VBox centerBox = new VBox();
 		centerBox.getChildren().addAll(convertButton, conversionsChoiceBox);
 		
-		// For components on the right side
+		// For components on the right side of GUI
 		Label resultLabel = new Label("Conversion result:");
 		TextField convertedResultField= new TextField();
 		convertedResultField.setEditable(false);
@@ -38,15 +38,15 @@ public class ConverterGUI {
 		VBox rightBox = new VBox();
 		rightBox.getChildren().addAll(resultLabel, convertedResultField);
 		
-		// For combining all components
+		// For combining ALL components
 		BorderPane layout = new BorderPane();
 		layout.setLeft(leftBox);
 		layout.setCenter(centerBox);
 		layout.setRight(rightBox);
 		
-		// For when button is clicked
+		// When convert button clicked
 		convertButton.setOnMouseClicked((event) -> {
-			// Gets the selected item from dropdown menu by its index
+			// Gets the selected item from drop down menu by its index
 			int conversionSelected = conversionsChoiceBox.getSelectionModel().getSelectedIndex();
 			// Gets the number user wants converted
 			String numberToConvert = numberToConvertField.getText();
@@ -95,8 +95,6 @@ public class ConverterGUI {
 				}
 				break;
 			case 2:
-				// TODO: Implement octal to binary conversion here, cleanup 0s in front and end
-				
 				if (numberToConvert.matches("^[-01234567][01234567]*")) {
 					// Performs octal to binary conversion and will print output
 					

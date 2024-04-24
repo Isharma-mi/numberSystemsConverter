@@ -7,21 +7,35 @@ public class OctalConverter {
 	 * @return String contains the binary result from conversion
 	 */
 	public String octalToBinary(String input) {
-		// Will store the converted result
+		// Used to store converted result
 		String result = "";
 		boolean isNegative = false;
 		
 		if (input.charAt(0) == '-') {
-			// Checks whether or not the octal number is a negative
+			// Checks if number to convert is negative
+			
 			isNegative = true;
 			result = "-";
 		}
 		
-		// Loop variable start from first char or second digit depending on if there is a - sign
+		// Loop variable starts from first actual digit
+		// Done since index of 1st digit dependent changes if number is negative
 		int i = isNegative ? 1:0;
-		// Loop thru each digit of input and convert to binary
+
+		// Loop thru each digit of input and convert to its binary equivalent
 		for (; i < input.length(); i++) {
 			result += digitToOctal(input.charAt(i));
+		}
+		
+		if (result.matches("[0][0][01234567]+") ) {
+			// Checks if the resulting conversion has 0s in front
+			
+			// Tries to remove extra 0s
+			try {
+				result = result.substring(2);				
+			} catch (IndexOutOfBoundsException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		// Returns converted value as a String
@@ -35,8 +49,10 @@ public class OctalConverter {
 	 * @return String contains the binary result from conversion
 	 */
 	private String digitToOctal(char digit) {
-		// Will store converted results
+		// Used to store converted digit
 		String result = "";
+		
+		// Sets result to whatever the digit's equivalent is in binary
 		switch(digit) {
 			case '0':
 				result = "000";

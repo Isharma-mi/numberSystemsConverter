@@ -8,33 +8,32 @@ public class BinaryConverter {
 	 * @return long contains the decimal result from conversion
 	 */
 	public long binaryToLongDecimal(String binaryNum) {
-		// Array that will contain each digit of binaryNum
+		// Array that will contain each digit of binary number sep'ly
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
 		
 		// Keeps track of which exponent we are on
-		int powerTracker = 0;
-		// Will store resulting value from conversion
+		int exponent = 0;
+		// Used to store converted result
 		long result = 0;
 		
-		// Loop thru each byte starting from last number -> Exponent starts from 2^0s
+		// Loop thru each byte starting from last number
 		for (int i = arrayOfDigits.length - 1; i >= 0; i--) {
 			if (arrayOfDigits[i] == 1) {
-				// Check if value at current index is 1, don't need to do any calculations for 0s
+				// Check if digit at current index is 1, don't need to do any calculations for 0s
 				
-				// Calculate value of current digit in decimal and add it to result
-				result += this.powerLong(2, powerTracker);
+				// Update result w/ binary digit converted to decimal 
+				result += this.powerLong(2, exponent);
 			}
-			// Increment powerTracker
-			powerTracker++;
+			// Increment exponent
+			exponent++;
 		}
 		
 		if (binaryNum.charAt(0) == '-') {
 			// Checks if binary num is negative
 			
-			// Makes result negative
+			// Makes converted result negative
 			result = -result;
 		}
-		
 		return result;
 	}
 	
@@ -45,28 +44,31 @@ public class BinaryConverter {
 	 * @return int contains the decimal result from conversion
 	 */
 	public int binaryToIntDecimal(String binaryNum) {
-		// Array that will contain each digit of binaryNum
+		// Array that will contain each digit of binary number sep'ly
 		byte[] arrayOfDigits = this.createDigitsArray(binaryNum);
 		
 		// Keeps track of which exponent we are on
-		int powerTracker = 0;
-		// Will store resulting value from conversion
+		int exponent = 0;
+		// Used to store converted result
 		int result = 0;
-		//Loop through each byte starting from last number -> Exponent starts from 2^0
+		
+		//Loop through each byte starting from last number
 		for (int i = arrayOfDigits.length - 1; i >= 0; i--) {
-			// Check if value at current index is 1, don't need to do any calculations for 0s
 			if (arrayOfDigits[i] == 1) {
-				// Calculate value of current digit in decimal and add it to result 
-				result += powerInt(2, powerTracker);
+				//Check if digit at current index is 1, don't need to do any calculations for 0s
+				
+				// Update result w/binary digit converted to decimal
+				result += powerInt(2, exponent);
 			}
-			// Increment powerTracker 
-			powerTracker++;
+			
+			// Increment exponent 
+			exponent++;
 		}
 		
 		if (binaryNum.charAt(0) == '-') {
 			// Checks if binary num is negative
 			
-			// Makes result negative
+			// Makes converted result negative
 			result = -result;
 		}
 		
@@ -85,20 +87,19 @@ public class BinaryConverter {
 	private byte[] createDigitsArray(String binaryNum) {
 		// Array that will contain each digit of the binaryNum
 		byte[] arrayOfDigits = new byte[binaryNum.length()];
-		// Break down binaryNum input into separate digits stored in arrayOfDigits
+		
+		// Break down binary number into separate digits that will be stored in an arrayOfDigits
 		for (int i = 0; i < binaryNum.length(); i++) {
 			/*
-			 * Takes each number from string as char and converts it to byte
+			 * Takes each number from String as char and converts it to byte
 			 * In ASCII '0'  is 48 while '1' is 49
 			 * Subtract by '0' since binaryNum.charAt(i) will either be 49 or 48   
 			 * Ignores negative signs
 			 */		
-			if (binaryNum.charAt(i) == 'i') {
-				continue;
-			}
 			arrayOfDigits[i] = (byte) (binaryNum.charAt(i) - '0');
 		}
 		
+		// Returns each digit converted into a byte
 		return arrayOfDigits;
 	}
 	
@@ -111,10 +112,10 @@ public class BinaryConverter {
 	 * @return int  contains the resulting power of base to the exponent
 	 */
 	private int powerInt(int base, int exponent) {
-		// Will contain final result
+		// Used to store the result
 		int result = 1;
 		
-		// Start from 0 so if exponent is 0 won't loop
+		// Calculates the result of base raised to the exponent
 		for (int i = 0; i < exponent; i++) {
 			result *= base ;
 		}
@@ -130,10 +131,10 @@ public class BinaryConverter {
 	 * @return long contains the resulting power of base to the exponent
 	 */
 	private long powerLong(int base, int exponent) {
-		// Will contain final result
+		// Used to store the result
 		long result = 1;
 
-		// Start from 0, if exponent is 0 won't loop
+		// Calculates the result of base raised to the exponent
 		for (int i = 0; i < exponent; i++) {
 			result *= base;
 		}

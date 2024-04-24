@@ -14,33 +14,32 @@ public class Converter {
 	public String binaryConversion(String input) {
 		BinaryConverter binaryConverter = new BinaryConverter();
 		boolean isNegative = false;
-		// Set return var to this to know if error occurred during conversion
+
+		// Initializes result to know if error occurred during conversion
 		String result = "No calculation done";
 
 		if (input.contains("-")) {
-			// Checks if input is a negative binary numbers
-			
+			// Checks if binary num is negative
 			// Used since negative inputs will have their length modified by the - sign as well
+			
 			isNegative = true;
 		}
 		
 		if (!isNegative) {
-			// If dealing with a positive binary number
+			// Dealing w/a positive binary number
 			
 			if (input.length() < 32) {
 				// If there are 31 digits in our positive input -> int
 				result = Integer.toString(binaryConverter.binaryToIntDecimal(input));		
 			} else {
 				// If there are 32 or more digits in our positive input -> long
-				
 				result = Long.toString(binaryConverter.binaryToLongDecimal(input));
 			}
 		} else {
-			// If dealing with a negative binary number
+			// Dealing w/a negative binary number
 			
 			if (input.length() < 32) {
-				// If input is 31 digits and 1 - sign -> int
-				
+				// If there are 30 digits and 1 - sign -> int
 				result = Integer.toString(binaryConverter.binaryToIntDecimal(input));
 			} else if (input.length() == 33) {
 				// If input is 32 digits and 1 - sign
@@ -48,10 +47,10 @@ public class Converter {
 				boolean convertToLong = false;
 				int numOfOnes = 0;
 				
-				// Loop thru each character of the input to check if there is atelast1 1s
+				// Loop thru binary number to see if there are multiple 1s in it
 				for (int i = 1; i < input.length(); i++) {
 					if (input.charAt(i) == '1') {
-						// If the current char is a 1
+						// If the current char is a 1 increment the tracker
 						numOfOnes++;
 						
 						if (numOfOnes > 1) {
@@ -65,20 +64,19 @@ public class Converter {
 				}
 				
 				if (convertToLong) {
+					// If there are 32 digits, 1 - sign, and multipe 1s -> long
 					result = Long.toString(binaryConverter.binaryToLongDecimal(input));
 				} else {
-
+					// If there are 32 digits, 1 - sign, and only one 1 in it -> int
 					result = Integer.toString(binaryConverter.binaryToIntDecimal(input));
 				}
 			} else {
 				// If there are more than 32 digits in our negative input
-				
 				result = Long.toString(binaryConverter.binaryToLongDecimal(input));
 			}
 				
 		}
-		
-		// Prints out Result: Converted #
+		// Returns converted result
 		return result;
 	}
 
