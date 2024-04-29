@@ -11,7 +11,7 @@ public class Converter {
 	 * @param input number that user wants to convert to decimal
 	 * @return String contains the converted number
 	 */
-	public String binaryConversion(String input) {
+	public String binaryToDecimalConversion(String input) {
 		BinaryConverter binaryConverter = new BinaryConverter();
 		boolean isNegative = false;
 
@@ -85,7 +85,7 @@ public class Converter {
 	 * @param input number that user wants to convert to binary
 	 * @return String that will contain the converted number
 	 */
-	public String decimalConversion(String input) {
+	public String decimalToBinaryConversion(String input) {
 		DecimalConverter deci = new DecimalConverter();
 		
 		return deci.decimalToBinary(input);
@@ -96,7 +96,7 @@ public class Converter {
 	 * @param input
 	 * @return String contains the converted number
 	 */
-	public String octalConversion(String input) {
+	public String octalToBinaryConversion(String input) {
 		OctalConverter oct = new OctalConverter();
 		
 		return oct.octalToBinary(input);

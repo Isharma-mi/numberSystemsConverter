@@ -91,7 +91,7 @@ public class ConverterGUI {
 				if (numberToConvert.matches("^[-01][01]*")) {
 					// Converts binary num to decimal and updates text field to show it
 					
-					convertedResultField.setText(converter.binaryConversion(numberToConvert));
+					convertedResultField.setText(converter.binaryToDecimalConversion(numberToConvert));
 					ableToConvert = true;
 				} else {
 					// Lets user know incorrect number was given 
@@ -104,7 +104,7 @@ public class ConverterGUI {
 				if (numberToConvert.matches("^[-0123456789][0123456789]*")) {
 					// Converts decimal num to binary and updates text field to show it
 
-					convertedResultField.setText(converter.decimalConversion(numberToConvert));		
+					convertedResultField.setText(converter.decimalToBinaryConversion(numberToConvert));		
 					ableToConvert = true;
 				} else {
 					// Lets user know an incorrect number was given
@@ -117,7 +117,7 @@ public class ConverterGUI {
 				if (numberToConvert.matches("^[-01234567][01234567]*")) {
 					// Performs octal to binary conversion and will print output
 					
-					convertedResultField.setText(converter.octalConversion(numberToConvert));	
+					convertedResultField.setText(converter.octalToBinaryConversion(numberToConvert));	
 					ableToConvert = true;
 				} else {
 					convertedResultField.setText("ERROR: Octal number not given");

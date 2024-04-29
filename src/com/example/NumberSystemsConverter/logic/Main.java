@@ -1,11 +1,10 @@
 package com.example.NumberSystemsConverter.logic;
 
-import java.util.Scanner;
 import com.example.NumberSystemsConverter.gui.ConverterGUI;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-
+	
 public class Main extends Application {
 	
 	@Override

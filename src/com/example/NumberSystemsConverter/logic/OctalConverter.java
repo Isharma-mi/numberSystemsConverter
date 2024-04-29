@@ -42,6 +42,8 @@ public class OctalConverter {
 		return result;
 	}
 	
+	//public String octalToDecimal(String input) {}
+	
 	
 	/**
 	 * Helper method that converts a digit into the octal form
@@ -84,4 +86,5 @@ public class OctalConverter {
 		}
 		return result;
 	}
+
 }
